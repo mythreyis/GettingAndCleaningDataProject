@@ -51,9 +51,9 @@ The goal of the project is to create one tidy dataset that has the following dat
 3. The activity and features txt files are read and their columns named appropriately. 
 4. The features data frame is subsetted to contain only the mean and standard deviation measurements using 'grepl' command
 5. The following steps are performed on both the train and test data files
-        * The subject data, activity data, measurements etc are read and the columns named appropriately
-        * Using the features index, only the relevant measurements (mean and std) for the project are extracted and stored
-        * The columns read from different files are bound together using 'cbind' into a single data frame
+       * The subject data, activity data, measurements etc are read and the columns named appropriately
+       * Using the features index, only the relevant measurements (mean and std) for the project are extracted and stored
+       * The columns read from different files are bound together using 'cbind' into a single data frame
 6. Both the train and test data are combined together as a single data frame using 'rbind'
 7. The data frame 'data' is merged with 'activity_labels' so that the activity description is a part of the data frame
 8. The columns of the data frame are reordered and sorted by subjectId so that subjectId appears as the first column and activity description appears as the second 
