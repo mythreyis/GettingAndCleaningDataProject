@@ -18,17 +18,18 @@ The initial data for the project can be downloaded from the following link
 https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip 
 
 The initial data is a zip file that contains the required data scattered in many different files as follows
-1. Activity labels and description - activity_labels.txt
-2. Features index and their description - features.txt
-3. Information on all the measurements - features
+
+1. Activity labels and description (activity_labels.txt)
+2. Features index and their description (features.txt)
+3. Information on all the measurements (features_info.txt)
 4. Test files
-        * Test subject data in subject_test.txt
-        * All the measurements in X_test.txt
-        * Activity codes in y_test.txt
+       * Test subject data in subject_test.txt
+       * All the measurements in X_test.txt
+       * Activity codes in y_test.txt
 5. Train files
-        * Train subject data in subject_train.txt
-        * All the measurements in X_train.txt
-        * Activity codes in y_train.txt
+       * Train subject data in subject_train.txt
+       * All the measurements in X_train.txt
+       * Activity codes in y_train.txt
 6. Both the test and train data contain 'Inertial signal' files for the individual measurements of different features. Since the data is available in X_test.txt, X_train.txt, y_test.txt and y_train.txt, these files can be safely ignored.
 
 ## Expected result
