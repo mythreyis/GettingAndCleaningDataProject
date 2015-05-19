@@ -14,17 +14,17 @@ library(reshape2)
 if(!file.exists("UCI HAR Dataset"))
 {
         dir.create("UCI HAR Dataset")
-}
-
-download.file(
-        "https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip",
-        destfile = "temp.file", method="curl",
+        download.file(
+                "https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip",
+                destfile = "temp.file", method="curl",
         )
-
-unzip("temp.file")
-
-dateDownloaded <- date()
-dateDownloaded
+        
+        unzip("temp.file")
+        
+        ##The date on which the data is downloaded is recorded
+        dateDownloaded <- date()
+        dateDownloaded
+}
 
 ##Read the activity labels file
 activity_labels <- read.table("UCI HAR Dataset/activity_labels.txt")
@@ -89,19 +89,12 @@ data <- data[c(3,2,4:82)]
 data <- arrange(data, subjectId)
  
 ##Melt the data frame so that all the column values are grouped by subjectId and activityDesc
-##and use the summarize function to find the mean and sd values for each measurement
+##and use the summarize function to find the mean for each measurement
 ##and rearrange the summarized data into columns again
 data <- melt(data, c("subjectId", "activityDesc"))
-data <- ddply(data, .(subjectId, activityDesc, variable), summarize, mean = mean(value), sd = sd(value))
+data <- ddply(data, .(subjectId, activityDesc, variable), summarize, mean = mean(value))
 data <- melt(data, c("subjectId", "activityDesc", "variable"), variable.name="variable2")
 data <- dcast(data, subjectId + activityDesc ~ variable + variable2)
-
-##Solution 2 using data.table - This one works too but is not easily readable
-##install.packages("data.table")
-##library(data.table)
-##data <- as.data.table(data)
-##data <- setnames(data[, c(mean = lapply(.SD, mean), sd = lapply(.SD, sd)), by = list(subjectId, activityDesc)], 
-##c("subjectId", "activityDesc", sapply(names(data)[-c(1,2)], paste0, c(".Mean", ".SD"))))
 
 ##Write the data frame into a text file
 write.table(data, file = "tidy_data.txt", sep = " ", row.names = FALSE, col.names = TRUE)
