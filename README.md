@@ -3,9 +3,13 @@
 The purpose of this project is to demonstrate one's ability to collect, work with, and clean a data set. The goal is to prepare tidy data that can be used for later analysis. 
 
 This repo contains three files
-1. README.md - This file explains the project and how the script works
-2. run_analysis.R - This file contains the complete R code to create a text file with tidy data from the initial data
-3. CodeBook.md - This file describes the variables, the data, and any transformations or work performed to clean up the data
+
+1. README.md 
+       This file explains the project and how the script works
+2. run_analysis.R
+       This file contains the complete R code to create a text file with tidy data from the initial data
+3. CodeBook.md
+       This file describes the variables, the data, and any transformations or work performed to clean up the data
 
 ## Initial data
 
